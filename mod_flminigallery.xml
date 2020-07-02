@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.8" client="site" method="upgrade">
+	<name>[FL] Mini Gallery</name>
+	<author>Vitaliy Moskalyuk</author>
+	<creationDate>August 2017</creationDate>
+	<copyright>(C) 2017 Vitaliy Moskalyuk. All rights reserved.</copyright>
+	<license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
+	<authorEmail>flanker@bk.ru</authorEmail>
+	<version>1.6.3</version>
+	<description>MOD_FLMINIGALLERY_XML_DESCRIPTION</description>
+	<files>
+		<filename>helper.php</filename>
+		<filename module="mod_flminigallery">mod_flminigallery.php</filename>
+		<folder>assets</folder>
+		<folder>language</folder>
+		<folder>messages</folder>
+		<folder>submit</folder>
+		<folder>tmpl</folder>
+	</files>
+	<languages>
+		<language tag="en-GB">en-GB.mod_flminigallery.ini</language>
+		<language tag="en-GB">en-GB.mod_flminigallery.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic" label="MOD_FLMINIGALLERY_IMAGES" addfieldpath="modules/mod_flminigallery/fields">
+				<field name="helperfl" type="helperfl" debug=""/>
+				<field name="title" label="MOD_FLMINIGALLERY_TITLE" type="text" required="true"/>
+				<field name="title_link" label="MOD_FLMINIGALLERY_TITLE_LINK" type="text"/>
+				<field name="layout" type="modulelayout" label="MOD_FLMINIGALLERY_LAYOUT" default="_:default"/>
+				<field name="width" label="MOD_FLMINIGALLERY_WIDTH" type="number" default="0" min="0" step="1" filter="int"/>
+				<field name="height" label="MOD_FLMINIGALLERY_HEIGHT" type="number" default="0" min="0" step="1" filter="int"/>
+				<field name="add_prefix" label="MOD_FLMINIGALLERY_ADD_PREFIX" type="list" default="0" class="chzn-color-state">
+					<option value="0">JNO</option>
+					<option value="alt">MOD_FLMINIGALLERY_FOR_ALT</option>
+					<option value="title">MOD_FLMINIGALLERY_FOR_TITLE</option>
+				</field>
+				<field name="prefix" label="MOD_FLMINIGALLERY_PREFIX" type="text" showon="add_prefix!:0"/>
+				<field name="type" label="MOD_FLMINIGALLERY_IMAGES" type="list" default="custom">
+					<option value="custom">MOD_FLMINIGALLERY_IMAGES_CUSTOM</option>
+					<option value="folder">MOD_FLMINIGALLERY_IMAGES_FOLDER</option>
+				</field>
+				<field name="recursive" label="MOD_FLMINIGALLERY_RECURSIVE" description="MOD_FLMINIGALLERY_RECURSIVE_DESC" type="radio" class="btn-group btn-group-yesno" default="0" showon="type!:custom">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="folder" label="MOD_FLMINIGALLERY_FOLDER" type="imagesfolderlist" default="" showon="type!:custom"/>
+				<field name="allow" label="MOD_FLMINIGALLERY_ALLOW_TYPES" type="imagesextensions" multiple="true" showon="type!:custom"/>
+				<field name="images" label="MOD_FLMINIGALLERY_IMAGES" type="subform" class="fl-subform-parent" multiple="true" groupByFieldset="true" groupClass="form-vertical" layout="joomla.form.field.subform.repeatable-table" showon="type:custom">
+					<form>
+						<fieldset name="section1" label="MOD_FLMINIGALLERY_IMAGE">
+							<field name="src" label="MOD_FLMINIGALLERY_IMAGE" type="media" required="true"/>
+							<field name="alt" label="alt" type="text" required="true"/>
+						</fieldset>
+						<fieldset name="section2" label="content">
+							<field name="content" label="content" type="textarea" cols="100" rows="8" filter="raw"/>
+						</fieldset>
+					</form>
+				</field>
+			</fieldset>
+			<fieldset name="advanced">
+				<field name="moduleclass_sfx" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL" description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" type="text"/>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

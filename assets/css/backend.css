@@ -1,0 +1,47 @@
+.fl-subform-desc .control-label {
+    display: block;
+    width: 100%;
+		box-sizing: border-box;
+}
+.fl-subform-desc .controls {
+	margin: 0 !important;
+}
+.fl-subform-desc .controls textarea {
+	width: 100% !important;
+	resize: vertical;
+	min-height: 50px;
+}
+@media (min-width: 1025px) {
+	.fl-subform-title {
+		width: 40%;
+	}
+}
+.subform-table-layout td {
+	padding-left: 10px !important;
+}
+.subform-table-layout .field-media-input {
+	width: calc(100% - 116px);
+}
+.subform-table-layout .field-media-wrapper .input-prepend.input-append {
+	display: block;
+}
+.subform-table-layout .control-label {
+	/* display: block; */
+}
+.form-horizontal .fl-subform-fieldset .control-label {
+	width: 85px;
+}
+.form-horizontal .fl-subform-fieldset .controls {
+	margin-left: 90px;
+}
+.fl-subform > .controls {
+	margin-left: 0 !important;
+}
+.fl-subform > .control-label {
+	float: unset;
+	width: auto !important;
+}
+
+.controls textarea {
+  width: 100%;
+}
